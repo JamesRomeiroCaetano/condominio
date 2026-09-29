@@ -15,7 +15,10 @@
   <header class="site-header">
     <nav class="nav" aria-label="Navegação principal">
       <a class="brand" href="#inicio" aria-label="Condomínio dos Ipês">
-        <img class="brand-logo" src="Logo.png" alt="Condomínio dos Ipês">
+        <picture>
+          <source srcset="logo.webp" type="image/webp">
+          <img class="brand-logo" src="Logo.png" alt="Condomínio dos Ipês" width="92" height="76" decoding="async">
+        </picture>
         <span>Condomínio dos Ipês</span>
       </a>
       <div class="nav-links">
@@ -187,7 +190,7 @@
         <p>Para falar com o vendedor, preencha primeiro seus dados. Ao enviar a ficha, abriremos uma mensagem pronta no WhatsApp com seu pré-cadastro.</p>
         <div class="contact-card">
           <span>Vendedor</span>
-          <strong>(19) 99415-9689</strong>
+          <strong>(11) 96525-4522</strong>
           <a href="#leadForm">Preencher ficha para chamar</a>
         </div>
       </div>
@@ -200,7 +203,7 @@
         <div class="form-row two-columns">
           <div>
             <label for="telefone">Telefone/WhatsApp</label>
-            <input id="telefone" name="telefone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000">
+            <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(00) 00000-0000">
           </div>
           <div>
             <label for="email">E-mail</label>
@@ -278,8 +281,11 @@
   </main>
 
   <footer class="footer">
-    <p>Condomínio dos Ipês - Atendimento consultivo para compra e visita em Ibiúna/SP.</p>
-    <a href="#pre-cadastro">Pré-cadastro para WhatsApp: (19) 99415-9689</a>
+    <div class="footer-copy">
+      <p>Condomínio dos Ipês - Atendimento consultivo para compra e visita em Ibiúna/SP.</p>
+      <p class="visitor-count">Visitantes: <strong id="visitorCount">—</strong></p>
+    </div>
+    <a href="#pre-cadastro">Pré-cadastro para WhatsApp: (11) 96525-4522</a>
   </footer>
 
   <a class="whatsapp-float" href="#pre-cadastro" aria-label="Preencher ficha para falar pelo WhatsApp">WhatsApp</a>

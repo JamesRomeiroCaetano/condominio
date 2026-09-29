@@ -1,4 +1,4 @@
-const sellerPhone = "5519994159689";
+const sellerPhone = "5511965254522";
 const form = document.querySelector("#leadForm");
 const phoneInput = document.querySelector("#telefone");
 const entryInput = document.querySelector("#entrada");
@@ -69,6 +69,62 @@ phoneInput.addEventListener("input", (event) => {
 entryInput.addEventListener("input", (event) => {
   event.target.value = formatCurrency(event.target.value);
 });
+
+function visitAlreadyCounted(today) {
+  try {
+    return localStorage.getItem("ipes_visita_dia") === today;
+  } catch {
+    return false;
+  }
+}
+
+function rememberVisit(today) {
+  try {
+    localStorage.setItem("ipes_visita_dia", today);
+  } catch {
+    // A visita continua contada mesmo se o navegador bloquear o armazenamento.
+  }
+}
+
+async function loadVisitorCount() {
+  const counter = document.querySelector("#visitorCount");
+
+  if (!counter) {
+    return;
+  }
+
+  const today = new Date().toISOString().slice(0, 10);
+  const alreadyCounted = visitAlreadyCounted(today);
+  const action = alreadyCounted ? "get" : "hit";
+
+  try {
+    const response = await fetch(
+      `https://abacus.jasoncameron.dev/${action}/condominiodosipes/visitas`,
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error("contador");
+    }
+
+    const data = await response.json();
+    const total = Number(data.value);
+
+    if (!Number.isFinite(total)) {
+      throw new Error("contador");
+    }
+
+    if (!alreadyCounted) {
+      rememberVisit(today);
+    }
+
+    counter.textContent = new Intl.NumberFormat("pt-BR").format(total);
+  } catch {
+    counter.closest(".visitor-count")?.remove();
+  }
+}
+
+loadVisitorCount();
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();

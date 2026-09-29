@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Canonical host: condominiodosipes.com.br
+# HTTPS is not forced yet so the site works before AutoSSL issues a certificate.
+RewriteCond %{HTTP_HOST} ^(www\.)?condominiodosipes\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www\.condominiodosipes\.com\.br$ [NC]
+RewriteRule ^ http://condominiodosipes.com.br%{REQUEST_URI} [R=301,L]

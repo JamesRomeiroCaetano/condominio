@@ -12,6 +12,7 @@
   --border: #e9dcc1;
   --glass: rgba(255, 255, 255, 0.14);
   --shadow: 0 28px 80px rgba(75, 46, 20, 0.17);
+  --header-height: 96px;
 }
 
 * {
@@ -20,6 +21,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -65,6 +73,11 @@ a {
   letter-spacing: -0.03em;
 }
 
+.brand picture {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
 .brand-logo {
   width: 92px;
   height: 76px;
@@ -79,6 +92,7 @@ a {
 .nav-links {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 24px;
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.95rem;
@@ -88,8 +102,17 @@ a {
   text-decoration: none;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus-visible {
   color: #fff;
+}
+
+.nav-links a:focus-visible,
+.brand:focus-visible,
+.btn:focus-visible,
+.whatsapp-float:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .btn {
@@ -716,8 +739,23 @@ textarea:focus {
   border-top: 1px solid var(--border);
 }
 
+.footer-copy {
+  display: grid;
+  gap: 6px;
+}
+
 .footer p {
   margin: 0;
+}
+
+.visitor-count {
+  color: var(--brown);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.visitor-count strong {
+  font-variant-numeric: tabular-nums;
 }
 
 .footer a {
@@ -740,6 +778,10 @@ textarea:focus {
 }
 
 @media (max-width: 920px) {
+  :root {
+    --header-height: 140px;
+  }
+
   .nav {
     min-height: auto;
     padding: 14px 0;
@@ -754,9 +796,10 @@ textarea:focus {
   .nav-links {
     order: 3;
     width: 100%;
-    justify-content: space-between;
-    gap: 12px;
-    overflow-x: auto;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    overflow: visible;
   }
 
   .hero,
@@ -786,7 +829,40 @@ textarea:focus {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --header-height: 128px;
+  }
+
+  .nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px 12px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand span {
+    max-width: 8.8rem;
+    line-height: 1.15;
+    font-size: 0.92rem;
+  }
+
   .nav .btn-small {
+    justify-self: end;
+  }
+
+  .nav-links {
+    grid-column: 1 / -1;
+  }
+
+  .hero {
+    padding-bottom: 56px;
+  }
+
+  .whatsapp-float {
     display: none;
   }
 
@@ -819,5 +895,6 @@ textarea:focus {
 
   .footer {
     flex-direction: column;
+    padding-bottom: 96px;
   }
 }
