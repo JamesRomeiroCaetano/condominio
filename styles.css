@@ -674,6 +674,39 @@ h3 {
   font-size: 0.82rem;
 }
 
+.sales-section {
+  display: block;
+}
+
+.sales-map {
+  margin: 0 0 22px;
+  padding: 16px;
+  background:
+    radial-gradient(circle at top right, rgba(245, 183, 27, 0.16), transparent 16rem),
+    linear-gradient(180deg, rgba(255, 250, 240, 0.99), rgba(255, 248, 232, 0.96));
+  border: 1px solid rgba(245, 183, 27, 0.24);
+  border-radius: 34px;
+  box-shadow: 0 22px 58px rgba(75, 46, 20, 0.1);
+}
+
+.sales-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  background: #fff;
+}
+
+.sales-map figcaption {
+  margin-top: 14px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.sales-notes {
+  margin-top: 0;
+}
+
 .showcase {
   display: grid;
   grid-template-columns: 0.9fr 1fr;
