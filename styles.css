@@ -772,6 +772,18 @@ h3 {
   gap: 18px;
 }
 
+.form-brand {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(245, 183, 27, 0.28);
+}
+
+.form-brand img {
+  width: min(220px, 72%);
+  height: auto;
+}
+
 .form-row {
   display: grid;
   gap: 8px;
