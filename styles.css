@@ -589,6 +589,24 @@ h3 {
   order: 2;
 }
 
+.place-card-route {
+  grid-template-columns: 1.35fr 0.75fr;
+  align-items: center;
+}
+
+.route-map {
+  margin: 0;
+}
+
+.route-map img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 24px;
+  background: #fbf6ee;
+}
+
 .place-photos {
   display: grid;
   grid-template-rows: 1.35fr 0.85fr;
@@ -903,6 +921,10 @@ textarea:focus {
 
   .place-card:nth-child(even) .place-photos {
     order: 0;
+  }
+
+  .place-card-route {
+    grid-template-columns: 1fr;
   }
 
   .place-photos {
