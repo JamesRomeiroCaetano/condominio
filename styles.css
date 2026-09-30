@@ -566,6 +566,96 @@ h3 {
   color: rgba(255, 255, 255, 0.86);
 }
 
+.surroundings-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.place-card {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 28px;
+  align-items: center;
+  padding: 16px;
+  background:
+    radial-gradient(circle at top right, rgba(245, 183, 27, 0.16), transparent 16rem),
+    linear-gradient(180deg, rgba(255, 250, 240, 0.99), rgba(255, 248, 232, 0.96));
+  border: 1px solid rgba(245, 183, 27, 0.24);
+  border-radius: 34px;
+  box-shadow: 0 22px 58px rgba(75, 46, 20, 0.1);
+}
+
+.place-card:nth-child(even) .place-photos {
+  order: 2;
+}
+
+.place-photos {
+  display: grid;
+  grid-template-rows: 1.35fr 0.85fr;
+  gap: 12px;
+  min-height: 460px;
+}
+
+.place-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.place-copy {
+  padding: 18px 18px 18px 8px;
+}
+
+.place-distance {
+  display: inline-flex;
+  margin: 0 0 14px;
+  padding: 8px 12px;
+  color: var(--brown);
+  background: linear-gradient(135deg, #ffe49b, var(--accent));
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.place-copy p:not(.place-distance) {
+  color: var(--muted);
+}
+
+.place-facts {
+  display: grid;
+  gap: 10px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.place-facts li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.place-facts li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.photo-credit {
+  margin: 16px 4px 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .showcase {
   display: grid;
   grid-template-columns: 0.9fr 1fr;
@@ -806,8 +896,21 @@ textarea:focus {
   .split,
   .sustainability,
   .showcase,
-  .form-section {
+  .form-section,
+  .place-card {
     grid-template-columns: 1fr;
+  }
+
+  .place-card:nth-child(even) .place-photos {
+    order: 0;
+  }
+
+  .place-photos {
+    min-height: 420px;
+  }
+
+  .place-copy {
+    padding: 8px 12px 16px;
   }
 
   .hero {
@@ -871,6 +974,10 @@ textarea:focus {
   .option-cards,
   .two-columns {
     grid-template-columns: 1fr;
+  }
+
+  .place-photos {
+    min-height: 360px;
   }
 
   .hero-actions .btn {
