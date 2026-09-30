@@ -45,6 +45,11 @@ function getField(id) {
 
 function buildMessage() {
   const lines = [
+    "https://condominiodosipes.com.br/Logo.png",
+    "",
+    "*CONDOMÍNIO DOS IPÊS*",
+    "_Onde o futuro cria raízes sustentáveis._",
+    "",
     "Olá, quero fazer meu pré-cadastro para o Condomínio dos Ipês em Ibiúna/SP.",
     "",
     `Nome: ${getField("nome")}`,
